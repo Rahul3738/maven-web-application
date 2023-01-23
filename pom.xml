@@ -28,6 +28,15 @@
 
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>RSS Remote Repository</name>
+			<url>http://3.6.189.144:8081/repository/rss-group-repo/</url>
+		</repository>
+	</repositories>
+	
+	
 	<dependencies>
 		
 		<dependency>
