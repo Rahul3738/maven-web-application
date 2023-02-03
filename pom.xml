@@ -32,7 +32,7 @@
 		<repository>
 			<id>nexus</id>
 			<name>RSS Remote Repository</name>
-			<url>http://3.6.189.144:8081/repository/rss-group-repo/</url>
+			<url>http://65.2.54.35:8081/repository/rss-group-repo/</url>
 		</repository>
 	</repositories>
 	
@@ -112,7 +112,7 @@
             <snapshotRepository>
               <id>nexus</id>     
               <name>Rahul Technologies Snapshot Nexus Repository </name>
-              <url>http://65.2.54.35:8081/repository/facebook-shapshot/</url>
+              <url>http://65.2.54.35:8081/repository/facebook-snapshot/</url>
             </snapshotRepository>
 	    
 	</distributionManagement>
