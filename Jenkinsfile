@@ -7,6 +7,8 @@ node{
     echo "The Nod ename is: ${env.NODE_NAME}"
     echo "The Build Number is: ${env.BUILD_NUMBER}"
     echo "The Jenkins Home directory is: ${JENKINS_HOME}"
+    
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
 
 //def is keyword to declare variable mavenhome is keyword
     def mavenhome = tool name: "maven3.8.5"
