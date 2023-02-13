@@ -2,6 +2,11 @@
 // If you want to specify specify like below syntax.
 
 node{
+    
+    echo "The Job name is: ${env.JOB_NAME}"
+    echo "The Nod ename is: ${env.NODE_NAME}"
+    echo "The Build Number is: ${env.BUILD_NUMBER}"
+    echo "The Jenkins Home directory is: ${JENKINS_HOME}"
 
 //def is keyword to declare variable mavenhome is keyword
     def mavenhome = tool name: "maven3.8.5"
