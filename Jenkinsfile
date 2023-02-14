@@ -1,45 +1,47 @@
-// By default script is going to run on matser instance.
-// If you want to specify specify like below syntax.
-
 node{
-    
+
+    def mavenhome = tool name: "maven3.8.5"
+
+    buildName 'Dev - ${BUILD_NUMBER}'
+    buildDescription 'Pipeline Script - Scripted Way'
+
     echo "The Job name is: ${env.JOB_NAME}"
     echo "The Nod ename is: ${env.NODE_NAME}"
     echo "The Build Number is: ${env.BUILD_NUMBER}"
     echo "The Jenkins Home directory is: ${JENKINS_HOME}"
     
+    // Discard old builds
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: '']])
+    
+    // Build periodically
+    properties([[$class: 'JobLocalConfiguration', changeReasonComment: ''], pipelineTriggers([cron('* * * * *')])])
 
-//def is keyword to declare variable mavenhome is keyword
-    def mavenhome = tool name: "maven3.8.5"
 
-    //CheckoutCode you can use any name 
+    //CheckoutCode Stage 
     stage('CheckoutCode'){
         git branch: 'development', credentialsId: 'GitHub_Credentials', url: 'https://github.com/Rahul3738/maven-web-application.git'
     }
 
+    //Build Stage
     stage('Build'){
         sh "$mavenhome/bin/mvn clean package"
     }
-
-    //stage('Build'){
-    //    sh "mvn clean package"
-    //}
-/*
+   
+    //Generate SonarQube Report Stage
     stage('SonarQubeReport'){
         sh "$mavenhome/bin/mvn sonar:sonar"
     }
 
+    //Upload Artifacts into Nexus Stage
     stage('UploadArtifactsIntoNexus'){
         sh "$mavenhome/bin/mvn deploy"
     }
-    
-    ///Deploy App to Tomcat Stage
+     
+    //Deploy App to Tomcat Stage using SSH Agent plugin
     stage('DeployWarToTomcat'){
         sshagent(['15a6d91a-850c-4142-8387-dfc4867c551c']) {
-    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.110.43.184:/opt/tomcat/webapps"
+            sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.126.174.188:/opt/tomcat/webapps"
+        }
     }
-    }
-    
-*/    
-}
+
+} //Node Closing
