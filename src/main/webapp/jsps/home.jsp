@@ -42,7 +42,7 @@ out.println("Server Host Name :: "+inetAddress.getHostName());
 		<br>
 		<a href="mailto:devopstrainingblr@gmail.com">Mail to Mithun Technologies</a>
 	</span>
-</div>
+</div> 
 <hr>
 	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
 <hr>
