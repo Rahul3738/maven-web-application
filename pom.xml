@@ -31,8 +31,8 @@
 	<repositories>
 		<repository>
 			<id>nexus</id>
-			<name>RSS Remote Repository</name>
-			<url>http://3.110.93.174:8081/repository/rss-group-repo/</url>
+			<name>RSS Group Repository</name>
+			<url>http://13.233.120.13:8081/repository/facebook-group-repo/</url>
 		</repository>
 	</repositories>
 	
@@ -107,13 +107,13 @@
 	    <repository>
               <id>nexus</id>     
               <name>Rahul Technologies Releases Nexus Repository</name>
-              <url>http://3.110.93.174:8081/repository/facebook-release/</url>
+              <url>http://13.233.120.13:8081/repository/facebook-release/</url>
             </repository>
 
             <snapshotRepository>
               <id>nexus</id>     
               <name>Rahul Technologies Snapshot Nexus Repository </name>
-              <url>http://3.110.93.174:8081/repository/facebook-snapshot/</url>
+              <url>http://13.233.120.13:8081/repository/facebook-snapshot/</url>
             </snapshotRepository>
 	    
 	</distributionManagement>
