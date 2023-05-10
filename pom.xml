@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://13.233.255.140:9000/</sonar.host.url>
+		<sonar.host.url>http://3.111.51.254:9000/</sonar.host.url>
 	        <sonar.login>squ_b667581bacb61208909d75c9b5b9642dc9a4b484</sonar.login> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -32,7 +32,7 @@
 		<repository>
 			<id>nexus</id>
 			<name>RSS Group Repository</name>
-			<url>http://13.233.120.13:8081/repository/facebook-group-repo/</url>
+			<url>http://65.0.32.122:8081/repository/facebook-group-repo/</url>
 		</repository>
 	</repositories>
 	
@@ -105,16 +105,16 @@
 	<distributionManagement>
 	
 	    <repository>
-              <id>nexus</id>     
-              <name>Rahul Technologies Releases Nexus Repository</name>
-              <url>http://13.233.120.13:8081/repository/facebook-release/</url>
-            </repository>
+            <id>nexus</id>     
+            <name>Rahul Technologies Releases Nexus Repository</name>
+            <url>http://65.0.32.122:8081/repository/facebook-release/</url>
+        </repository>
 
-            <snapshotRepository>
-              <id>nexus</id>     
-              <name>Rahul Technologies Snapshot Nexus Repository </name>
-              <url>http://13.233.120.13:8081/repository/facebook-snapshot/</url>
-            </snapshotRepository>
+        <snapshotRepository>
+            <id>nexus</id>     
+            <name>Rahul Technologies Snapshot Nexus Repository </name>
+            <url>http://65.0.32.122:8081/repository/facebook-snapshot/</url>
+        </snapshotRepository>
 	    
 	</distributionManagement>
 	
@@ -128,8 +128,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.3</version>
 				<configuration>
-					<source>${jdk.version}</source>
-					<target>${jdk.version}</target>
+  				    <source>${jdk.version}</source>
+  				    <target>${jdk.version}</target>
 				</configuration>
 			</plugin>
 
