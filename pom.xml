@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://65.1.94.246:9000/</sonar.host.url>
+		<sonar.host.url>http://13.126.131.39:9000/</sonar.host.url>
 	        <sonar.login>squ_b667581bacb61208909d75c9b5b9642dc9a4b484</sonar.login> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -32,7 +32,7 @@
 		<repository>
 			<id>nexus</id>
 			<name>RSS Group Repository</name>
-			<url>http://3.7.66.92:8081/repository/facebook-group-repo/</url>
+			<url>http://35.154.130.238:8081/repository/facebook-group-repo/</url>
 		</repository>
 	</repositories>
 	
@@ -107,13 +107,13 @@
 	    <repository>
             <id>nexus</id>     
             <name>Rahul Technologies Releases Nexus Repository</name>
-            <url>http://3.7.66.92:8081/repository/facebook-release/</url>
+            <url>http://35.154.130.238:8081/repository/facebook-release/</url>
         </repository>
 
         <snapshotRepository>
             <id>nexus</id>     
             <name>Rahul Technologies Snapshot Nexus Repository </name>
-            <url>http://3.7.66.92:8081/repository/facebook-snapshot/</url>
+            <url>http://35.154.130.238:8081/repository/facebook-snapshot/</url>
         </snapshotRepository>
 	    
 	</distributionManagement>
