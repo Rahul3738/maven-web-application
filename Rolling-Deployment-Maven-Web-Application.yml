@@ -1,0 +1,42 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: mavenwebapprd
+  namespace: test-ns
+spec:
+  replicas: 2
+#  revisionHistoryLimit: 3   # It will maintain 3 replicasets information. Any number you can keep  
+#  minReadySeconds: 30       # It will delete old pod after 30 seconds of new pod created
+  strategy:
+    type: RollingUpdate
+#    rollingUpdate:
+#      maxSurge: 1           # number of pods will be created
+#      maxUnavailable: 1     # number of pods will be unavailabe
+  selector:
+    matchLabels:
+      app: mavenwebapp     # Pod Labels
+  template:                # POD template
+    metadata:
+      labels:
+        app: mavenwebapp   # Pod Labels
+    spec:
+      containers: 
+      - name: mavenwebappcontainer  # Container name
+        image: rahultechmumbai/maven-web-app:1 # Image name
+        ports:
+        - containerPort: 8080   # Container Port
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mavenwebappcsvc
+  namespace: test-ns
+spec:
+  type: NodePort
+  selector:           # POD Label as selector
+    app: mavenwebapp
+  ports:
+  - port: 80          # The port exposed by the service
+    targetPort: 8080  # The port that the pods are listening on
+#    nodePort: 30080  # The NodePort; choose a value within the range 30000-32767        
+
