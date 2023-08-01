@@ -17,7 +17,7 @@ spec:
       - name: mavenwebapp  # Container name
         image: rahultechmumbai/maven-web-app:TAG  # Image name
         ports:
-        - containerPort: 8080   # Container Port
+        - containerPort: 8080  # Container Port
 ---
 apiVersion: v1
 kind: Service
