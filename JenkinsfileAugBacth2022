@@ -27,6 +27,8 @@ try{
   sh "${mavenHome}/bin/mvn clean sonar:sonar"
   }
   
+
+  
   stage('UploadArtifactsIntoNexus')
   {
   sh "${mavenHome}/bin/mvn clean deploy"
