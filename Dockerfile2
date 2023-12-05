@@ -1,0 +1,22 @@
+FROM openjdk:8-jre-alpine
+
+WORKDIR /opt
+
+ENV CATALINA_HOME=/opt/tomcat8
+ENV PATH=$PATH:$CATALINA_HOME/bin
+
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96.tar.gz && \
+    tar -zxvf apache-tomcat-8.5.96.tar.gz && \
+    rm -rf apache-tomcat-8.5.96.tar.gz && \
+    mv apache-tomcat-8.5.96 tomcat8 && \
+    adduser -D tomcat && \
+    chown -R tomcat:tomcat ${CATALINA_HOME} && \
+    chmod +x /opt/tomcat8/bin/*.sh
+
+COPY target/maven-web-application*.war $CATALINA_HOME/webapps/maven-web-application.war
+
+USER tomcat
+
+EXPOSE 8080
+
+CMD ["catalina.sh", "run"]
