@@ -5,7 +5,7 @@ FROM tomcat:9-alpine
 WORKDIR /usr/local/tomcat
 
 # Copy the WAR file from the Jenkins workspace
-COPY target/maven-web-application* /usr/local/tomcat/webapps/maven-web-application.war
+COPY target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
 
 # Create a non-root user and changing user and group of working directory
 RUN adduser -D tomcat && chown -R tomcat:tomcat /usr/local/tomcat
