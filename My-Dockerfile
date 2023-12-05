@@ -2,13 +2,14 @@
 FROM tomcat:9-alpine
 
 # Set the working directory to the Tomcat webapps directory
-WORKDIR /usr/local/tomcat
+ENV WORK_DIR /usr/local/tomcat
+WORKDIR $WORK_DIR
 
 # Copy the WAR file from the Jenkins workspace
-COPY target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
+COPY target/maven-web-application*.war $WORK_DIR/webapps/maven-web-application.war
 
 # Create a non-root user and changing user and group of working directory
-RUN adduser -D tomcat && chown -R tomcat:tomcat /usr/local/tomcat
+RUN adduser -D tomcat && chown -R tomcat:tomcat $WORK_DIR
 
 # Switch to the non-root user
 USER tomcat
